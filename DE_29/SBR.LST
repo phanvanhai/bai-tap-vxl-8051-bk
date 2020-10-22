@@ -1,0 +1,101 @@
+A51 MACRO ASSEMBLER  SBR                                                                  01/07/2018 23:09:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN SBR.OBJ
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE SBR.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020050            2             LJMP MAIN
+
+                       3     
+
+0050                   4     ORG 0050H
+
+0050                   5     MAIN:
+
+0050 7920              6             MOV R1, #20H
+
+0052 7923              7             MOV R1, #23H
+
+0054 120059            8             LCALL SBR
+
+                       9     
+
+0057 80FE             10             SJMP $
+
+                      11     ;----- END MAIN-----
+
+                      12     
+
+0059                  13     SBR:
+
+0059 C0E0             14             PUSH ACC
+
+005B C0F0             15             PUSH B
+
+005D C0D0             16             PUSH PSW
+
+                      17             ; tính so byte t R1 den R2 = R2 - R1 +1
+
+005F EA               18             MOV A, R2
+
+0060 C3               19             CLR C
+
+0061 99               20             SUBB A, R1
+
+0062 2401             21             ADD A, #01
+
+0064 F5F0             22             MOV B, A                ; chuyen so byte vao B dung cho vong lap
+
+0066                  23     BACK:
+
+0066 E7               24             MOV A, @R1
+
+0067 B2E7             25             CPL ACC.7
+
+0069 F7               26             MOV @R1, A
+
+006A 09               27             INC R1
+
+006B D5F0F8           28             DJNZ B, BACK
+
+                      29             
+
+006E D0D0             30     POP PSW
+
+0070 D0F0             31     POP B
+
+0072 D0E0             32     POP ACC
+
+                      33     
+
+0074 22               34     RET
+
+                      35     
+
+                      36     END
+
+A51 MACRO ASSEMBLER  SBR                                                                  01/07/2018 23:09:44 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+BACK . . . . . . .  C ADDR   0066H   A   
+MAIN . . . . . . .  C ADDR   0050H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+SBR. . . . . . . .  C ADDR   0059H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

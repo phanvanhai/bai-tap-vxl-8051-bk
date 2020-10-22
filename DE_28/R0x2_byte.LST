@@ -1,0 +1,89 @@
+A51 MACRO ASSEMBLER  R0X2_BYTE                                                            01/07/2018 23:28:15 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN R0x2_byte.OBJ
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE R0x2_byte.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+                       2     
+
+                       3     ; gia su 2 byte dc nhan õ dia chi: 50H, 51H
+
+0000 75503F            4     MOV 50H, #3FH
+
+0003 7551AF            5     MOV 51H, #0AFH
+
+0006 7833              6     MOV R0, #33H
+
+                       7     
+
+                       8     ; 3 byte lu tru ket qua
+
+  REG                  9     KQ1 EQU R2
+
+  REG                 10     KQ2 EQU R3
+
+  REG                 11     KQ3 EQU R4
+
+                      12     
+
+                      13     ; NHAN B2_B1 x R0 
+
+                      14     ; B1 x R0
+
+0008 E8               15     MOV A, R0
+
+0009 8550F0           16     MOV B, 50H
+
+000C A4               17     MUL AB  
+
+000D FA               18     MOV KQ1, A
+
+000E ABF0             19     MOV KQ2, B
+
+                      20     
+
+                      21     ; B2 x R0
+
+0010 E8               22     MOV A, R0
+
+0011 8551F0           23     MOV B, 51H
+
+0014 A4               24     MUL AB
+
+0015 2B               25     ADD A, KQ2                      ; KQ2 = A + KQ2 truoc do
+
+0016 FB               26     MOV KQ2, A
+
+0017 7400             27     MOV A, #00
+
+0019 35F0             28     ADDC A, B       ; KQ3 = B + CARRY
+
+001B FC               29     MOV KQ3, A
+
+                      30     
+
+                      31     END
+
+A51 MACRO ASSEMBLER  R0X2_BYTE                                                            01/07/2018 23:28:15 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+KQ1. . . . . . . .    REG    R2          
+KQ2. . . . . . . .    REG    R3          
+KQ3. . . . . . . .    REG    R4          
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

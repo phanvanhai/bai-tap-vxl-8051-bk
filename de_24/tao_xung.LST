@@ -1,0 +1,114 @@
+A51 MACRO ASSEMBLER  TAO_XUNG                                                             01/08/2018 00:18:32 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN tao_xung.OBJ
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE tao_xung.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000h
+
+0000 020030            2     ljmp main
+
+                       3     
+
+                       4     ; ct ngat INT0
+
+000B                   5     org 000BH
+
+000B B2A0              6     cpl P2.0                ;1us
+
+000D B2A1              7     cpl P2.1                ;1us
+
+000F 18                8     dec R0                  ; dem so xung da phat
+
+0010 758C00            9     mov TH0, #00H   ;2us
+
+0013 758AFD           10     mov TL0, #0FDH  ;2us
+
+                      11     ; tong = 65283+6= 65289us => T = 2*65289=130578us => f= 7 Hz
+
+0016 32               12     reti
+
+                      13     
+
+                      14     ;----------------
+
+  000A                15     XUNG EQU 10             ; tao 10 xung
+
+                      16             
+
+                      17     ;-----------------
+
+0030                  18     org 0030H
+
+0030                  19     main: 
+
+0030 758901           20             mov TMOD, #01H ; timer 0 mode 1: 16 bit
+
+0033 75A882           21             mov IE, #82H    ; enable interupt 0
+
+0036 7814             22             mov R0, #(2* XUNG)
+
+                      23     
+
+0038                  24     loop:
+
+0038 C28C             25             clr TR0                 ; dung tao xung
+
+003A 758C00           26             mov TH0, #00H
+
+003D 758AFD           27             mov TL0, #0FDH  ; 65283us-> TF0=1
+
+                      28             
+
+0040 2091FD           29             jb P1.1,$               ; doi den khi P1.1 = 0 thi tao xung
+
+0043 D28C             30             setb TR0                ; bat dau tao xung
+
+                      31             
+
+                      32             ; if P1.1 =1 jump loop => dung tao xung va doi tin hieu bat dau tao xung moi
+
+0045 2091F0           33             kiemtra: jb P1.1, loop
+
+                      34             ;else: P1.1 van = 0:
+
+0048 B800FA           35             cjne R0,#0, kiemtra             ; neu chua du 10 xung thi nhay den Kiemtra
+
+                      36             ; if R0 = 0 => da tao du 10 xung => ket thuc
+
+004B C28C             37             clr TR0
+
+004D 80FE             38     jmp $
+
+                      39             
+
+                      40     end
+
+A51 MACRO ASSEMBLER  TAO_XUNG                                                             01/08/2018 00:18:32 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IE . . . . . . . .  D ADDR   00A8H   A   
+KIEMTRA. . . . . .  C ADDR   0045H   A   
+LOOP . . . . . . .  C ADDR   0038H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+XUNG . . . . . . .  N NUMB   000AH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

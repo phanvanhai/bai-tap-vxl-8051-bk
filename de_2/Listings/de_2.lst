@@ -1,0 +1,91 @@
+A51 MACRO ASSEMBLER  DE_2                                                                 01/07/2018 21:39:09 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de_2.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de_2.a51 SET(SMALL) DEBUG PRINT(.\Listings\de_2.lst) OBJECT(.\Objects\d
+                      e_2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+0030                   4     ORG 0030H
+
+0030                   5     MAIN:
+
+                       6             ; gan DPTR = 0xXXXXH
+
+0030 1132              7             ACALL COUNT
+
+                       8             
+
+                       9     ;-----------------
+
+0032                  10     COUNT:
+
+                      11             ; khoi tao cac gia tri
+
+  0030                12             N EQU 30h                                                       ; so luong cac phan
+                              tu can kiem tra
+
+                      13             
+
+0032 8B30             14             MOV N, R3
+
+0034 7C00             15             MOV R4, #0                                                      ; so dem ban dau = 
+                             0
+
+                      16             
+
+0036                  17             LOOP:
+
+0036 E0               18                     MOVX A, @DPTR
+
+0037 30E701           19                     JNB ACC.7, SKIP                                 ; neu ACC.7 = 0 thi A la so
+                              duong hoac so 0 => bo qua
+
+                      20                             ; else: la so am
+
+003A 0C               21                             INC R4
+
+003B                  22                     SKIP:
+
+003B A3               23                             INC DPTR
+
+003C D530F7           24             DJNZ N, LOOP                                            ; lap den khi nao N = 0
+
+                      25             
+
+003F 22               26     RET 
+
+                      27     
+
+                      28     END
+
+                                                     
+
+A51 MACRO ASSEMBLER  DE_2                                                                 01/07/2018 21:39:09 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+COUNT. . . . . . .  C ADDR   0032H   A   
+LOOP . . . . . . .  C ADDR   0036H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+N. . . . . . . . .  N NUMB   0030H   A   
+SKIP . . . . . . .  C ADDR   003BH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

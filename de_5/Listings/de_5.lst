@@ -1,0 +1,90 @@
+A51 MACRO ASSEMBLER  DE_5                                                                 01/07/2018 20:12:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de_5.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de_5.a51 SET(SMALL) DEBUG PRINT(.\Listings\de_5.lst) OBJECT(.\Objects\d
+                      e_5.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020000            2             LJMP MAIN
+
+                       3     
+
+0000                   4     ORG 0000H
+
+0000                   5     MAIN:
+
+0000 1102              6             ACALL SUBTRACT
+
+                       7             
+
+                       8     ;------------
+
+0002                   9     SUBTRACT:
+
+  0030                10             N EQU 30H
+
+                      11                     
+
+0002 E8               12             MOV A, R0
+
+0003 2405             13             ADD A, #5
+
+0005 F8               14             MOV R0, A       ; R0-> byte nho nhat cua so bi tru
+
+0006 E9               15             MOV A, R1
+
+0007 2405             16             ADD A, #5
+
+0009 F9               17             MOV R1, A       ; R1 -> byte thap nhat cua so tru
+
+                      18             
+
+000A 753005           19             MOV N, #5
+
+000D C3               20             CLR C
+
+000E                  21             LOOP:
+
+000E E6               22                     MOV A, @R0
+
+000F 97               23                     SUBB A, @R1             ; A = @R0-@R1
+
+0010 F6               24                     MOV @R0, A              ; @R0 = A
+
+0011 18               25                     DEC R0
+
+0012 19               26                     DEC R1
+
+0013 D530F8           27             DJNZ N, LOOP
+
+0016 22               28     RET
+
+                      29     
+
+                      30     END
+
+                             
+
+A51 MACRO ASSEMBLER  DE_5                                                                 01/07/2018 20:12:29 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   000EH   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+N. . . . . . . . .  N NUMB   0030H   A   
+SUBTRACT . . . . .  C ADDR   0002H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,80 @@
+A51 MACRO ASSEMBLER  DE17                                                                 01/07/2018 11:38:35 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\DE17.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE DE17.a51 SET(SMALL) DEBUG PRINT(.\Listings\DE17.lst) OBJECT(.\Objects\D
+                      E17.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+  0081                 4     IBF EQU P0.1
+
+  0082                 5     STB EQU P0.2
+
+                       6             
+
+0030                   7     ORG 0030H
+
+0030                   8     MAIN:
+
+0030 7800              9             MOV R0,#0       ; R0 dem so byte
+
+0032                  10             LOOP:
+
+0032 3081FD           11                     JNB IBF, $              ; kiem tra trang thai IBF==1?
+
+                      12                     ; chuyen du lieu vao RAM ngoai  
+
+0035 E590             13                     MOV A, P1
+
+0037 F0               14                     MOVX @DPTR, A
+
+                      15                     ; tao xung thap bao qua trinh doc da xong
+
+0038 C282             16                     CLR STB
+
+003A D282             17                     SETB STB
+
+                      18             
+
+003C A3               19                     INC DPTR
+
+003D 08               20                     INC R0
+
+003E B80AF1           21             CJNE R0, #10, LOOP
+
+                      22     
+
+                      23     END
+
+                             
+
+                                     
+
+A51 MACRO ASSEMBLER  DE17                                                                 01/07/2018 11:38:35 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IBF. . . . . . . .  B ADDR   0080H.1 A   
+LOOP . . . . . . .  C ADDR   0032H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+STB. . . . . . . .  B ADDR   0080H.2 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

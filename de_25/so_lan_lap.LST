@@ -1,0 +1,119 @@
+A51 MACRO ASSEMBLER  SO_LAN_LAP                                                           01/08/2018 00:05:18 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN so_lan_lap.OBJ
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE so_lan_lap.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 00                2     NOP
+
+0001 804D              3     SJMP MAIN
+
+                       4     
+
+0050                   5     ORG 0050H
+
+0050                   6     MAIN:
+
+                       7             ; thiet lap bo du lieu de test ct con
+
+0050 753001            8             MOV 30H, #01H
+
+0053 753102            9             MOV 31H, #02H
+
+0056 753210           10             MOV 32H, #10H
+
+0059 753301           11             MOV 33H, #01H
+
+005C 75349A           12             MOV 34H, #9AH
+
+005F 753501           13             MOV 35H, #01H
+
+                      14             
+
+0062 75F001           15             MOV B, #01H
+
+0065 7930             16             MOV R1, #30H
+
+0067 7A06             17             MOV R2, #6
+
+                      18             
+
+                      19             ; goi ct con
+
+0069 12006E           20             LCALL SO_LAN_LAP
+
+                      21             
+
+006C 80FE             22             SJMP $
+
+                      23     
+
+                      24     ;--------- SO LAN LAP ----------
+
+006E                  25     SO_LAN_LAP:
+
+  00F0                26             TIM EQU B                       ; so can kiem tra
+
+  REG                 27             NUM EQU R1                      ; bien NUM de duyet tung so trong mang
+
+  REG                 28             N       EQU R2                  ; so luong phan tu trong mang da dat truoc khi goi 
+                             ct con
+
+  REG                 29             KQ      EQU R3                  ; ket qua tim dc
+
+                      30             
+
+                      31             ;--- INTIAL ----
+
+006E 7B00             32             MOV KQ, #0
+
+                      33             
+
+0070                  34             LOOP:
+
+0070 E7               35                     MOV A, @NUM             ; A = gia tri tung phan tu trong mang
+
+0071 B5F001           36                     CJNE A, TIM, SKIP       ; neu A != TIM thi bo qu
+
+0074 0B               37                     INC KQ                          ; else: tang so lan lap = KQ len 1
+
+0075                  38                     SKIP:
+
+0075 09               39                             INC NUM                 ; tro den phan tu tiep theo
+
+0076 DAF8             40                             DJNZ N, LOOP    ; da kiem tra het N so chua?
+
+0078 22               41     RET
+
+                      42     
+
+                      43     END
+
+A51 MACRO ASSEMBLER  SO_LAN_LAP                                                           01/08/2018 00:05:18 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+KQ . . . . . . . .    REG    R3          
+LOOP . . . . . . .  C ADDR   0070H   A   
+MAIN . . . . . . .  C ADDR   0050H   A   
+N. . . . . . . . .    REG    R2          
+NUM. . . . . . . .    REG    R1          
+SKIP . . . . . . .  C ADDR   0075H   A   
+SO_LAN_LAP . . . .  C ADDR   006EH   A   
+TIM. . . . . . . .  D ADDR   00F0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

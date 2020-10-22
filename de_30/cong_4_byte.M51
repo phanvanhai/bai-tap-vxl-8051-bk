@@ -1,0 +1,55 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/07/2018  22:25:03  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE cong_4_byte.obj TO cong_4_byte
+
+
+INPUT MODULES INCLUDED:
+  cong_4_byte.obj (CONG_4_BYTE)
+
+
+LINK MAP OF MODULE:  cong_4_byte (CONG_4_BYTE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0045H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  cong_4_byte (CONG_4_BYTE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CONG_4_BYTE
+  C:0032H         SYMBOL        ADD_4BYTE
+  C:003DH         SYMBOL        BACK
+  C:0030H         SYMBOL        MAIN
+  C:0000H         LINE#         2
+  C:0030H         LINE#         7
+  C:0032H         LINE#         17
+  C:0033H         LINE#         18
+  C:0035H         LINE#         19
+  C:0036H         LINE#         21
+  C:0037H         LINE#         22
+  C:0039H         LINE#         23
+  C:003AH         LINE#         26
+  C:003CH         LINE#         27
+  C:003DH         LINE#         29
+  C:003EH         LINE#         30
+  C:003FH         LINE#         31
+  C:0040H         LINE#         32
+  C:0041H         LINE#         33
+  C:0042H         LINE#         34
+  C:0044H         LINE#         35
+  -------         ENDMOD        CONG_4_BYTE
+
+Program Size: data=8.0 xdata=0 code=69
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

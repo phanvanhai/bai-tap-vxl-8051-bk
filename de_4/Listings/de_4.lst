@@ -1,0 +1,90 @@
+A51 MACRO ASSEMBLER  DE_4                                                                 01/07/2018 20:31:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de_4.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de_4.a51 SET(SMALL) DEBUG PRINT(.\Listings\de_4.lst) OBJECT(.\Objects\d
+                      e_4.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+  0030                 4     N EQU 30H
+
+                       5             
+
+0030                   6     ORG 0030H
+
+0030                   7     MAIN:
+
+0030 1132              8             ACALL ADD_BCD
+
+                       9             
+
+                      10     ;-----------------
+
+                      11     ; INPUT:
+
+                      12             ; R0-> BYTE THAP SO HANG DAU
+
+                      13             ; R1-> BYTE THAP SO HANG THU 2
+
+                      14             ; N -> SO BYTE 
+
+                      15     ; OUTPUT:
+
+                      16             ; R0 -> BYTE THAP CUA KET QUA
+
+                      17             ; C : BIT BAO TRAN CUA KET QUA
+
+0032                  18             ADD_BCD:
+
+0032 C3               19             CLR C
+
+0033                  20             LOOP:
+
+0033 E6               21                     MOV A, @R0
+
+0034 37               22                     ADDC A, @R1     ; A = @R0+@R1+C
+
+0035 D4               23                     DA A
+
+0036 F6               24                     MOV @R0, A      ; CHUYEN KET QUA VAO @R0
+
+0037 08               25                     INC R0
+
+0038 09               26                     INC R1
+
+0039 D530F7           27             DJNZ N, LOOP
+
+003C 22               28     RET
+
+                      29     
+
+                      30     END
+
+                                     
+
+A51 MACRO ASSEMBLER  DE_4                                                                 01/07/2018 20:31:57 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADD_BCD. . . . . .  C ADDR   0032H   A   
+LOOP . . . . . . .  C ADDR   0033H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+N. . . . . . . . .  N NUMB   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

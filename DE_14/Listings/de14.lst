@@ -1,0 +1,148 @@
+A51 MACRO ASSEMBLER  DE14                                                                 01/07/2018 13:49:10 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de14.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de14.a51 SET(SMALL) DEBUG PRINT(.\Listings\de14.lst) OBJECT(.\Objects\d
+                      e14.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+                       4     ;khai bao bien
+
+  0030                 5     OFFSET          EQU 30H                 
+
+  0031                 6     N_OFFSET        EQU 31H         ; so luong offset = B
+
+  0032                 7     ADDR_OF_L       EQU 32H         ; dia chi cua offset
+
+  0033                 8     ADDR_OF_H       EQU 33H
+
+0030                   9     ORG 0030H
+
+0030                  10     MAIN:
+
+0030 753000           11             MOV OFFSET, #00H
+
+0033 753100           12             MOV N_OFFSET, #00H
+
+0036 753201           13             MOV ADDR_OF_L, #LOW(0001H)
+
+0039 753300           14             MOV ADDR_OF_H, #HIGH(0001H)
+
+                      15             
+
+003C 758232           16             MOV DPL, #ADDR_OF_L
+
+003F 758233           17             MOV DPL, #ADDR_OF_H
+
+                      18             
+
+0042                  19             LOOP:
+
+0042 E0               20                     MOVX A, @DPTR
+
+0043 B5F002           21                     CJNE A, B, TRUE
+
+0046 8012             22                             SJMP INCREASE
+
+0048                  23                     TRUE:
+
+0048 0531             24                             INC N_OFFSET                    ; tang bien dem so luong offset
+
+                      25                             ; chuyen gia tri offset vao RAM ngoai
+
+004A 758232           26                             MOV DPL, #ADDR_OF_L
+
+004D 758233           27                             MOV DPL, #ADDR_OF_H
+
+0050 E530             28                             MOV A, OFFSET                   ; vi tri offset -> A
+
+0052 F0               29                             MOVx @DPTR, A                   ; chuyen vi tri offset vao o nho tu
+                             ong ung
+
+                      30                             ; chuyen den o nho chua vi tri offset tiep theo
+
+0053 A3               31                             INC DPTR                        
+
+0054 858232           32                             MOV ADDR_OF_L, DPL
+
+0057 858333           33                             MOV ADDR_OF_H, DPH
+
+005A                  34                     INCREASE:
+
+                      35                             ; chuyen DPTR tro den phan tu tiep theo trong mang
+
+005A 0530             36                             INC OFFSET                              ; tro toi vi tri offset tie
+                             p theo
+
+                      37                             ; DPTR = 1000H + OFFSET
+
+005C E530             38                             MOV A, OFFSET
+
+005E C3               39                             CLR C
+
+005F 2400             40                             ADD A, #LOW(1000H)
+
+0061 F582             41                             MOV DPL , A
+
+0063 7410             42                             MOV A, #HIGH(1000H)
+
+0065 3400             43                             ADDC A, #0                              ; DPH = HIGH(1000H) + C
+
+0067 F583             44                             MOV DPH, A
+
+0069                  45                     CHECK:
+
+                      46                             ; kiem tra xem da het mang chua?
+
+0069 E530             47                             MOV A, OFFSET
+
+006B B4C9D4           48                             CJNE A, #(1200-1000+1), LOOP
+
+                      49                     ; chuyen so luong offset tim dc vao o nho: 0000H
+
+006E 758200           50                     MOV DPL, #00H
+
+0071 758300           51                     MOV DPH, #00H
+
+0074 E531             52                     MOV A, N_OFFSET
+
+0076 F0               53                     MOVX @DPTR, A
+
+                      54     END
+
+                                     
+
+A51 MACRO ASSEMBLER  DE14                                                                 01/07/2018 13:49:10 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADDR_OF_H. . . . .  N NUMB   0033H   A   
+ADDR_OF_L. . . . .  N NUMB   0032H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+CHECK. . . . . . .  C ADDR   0069H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+INCREASE . . . . .  C ADDR   005AH   A   
+LOOP . . . . . . .  C ADDR   0042H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+N_OFFSET . . . . .  N NUMB   0031H   A   
+OFFSET . . . . . .  N NUMB   0030H   A   
+TRUE . . . . . . .  C ADDR   0048H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

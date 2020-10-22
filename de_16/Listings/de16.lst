@@ -1,0 +1,144 @@
+A51 MACRO ASSEMBLER  DE16                                                                 01/07/2018 12:37:27 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de16.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de16.a51 SET(SMALL) DEBUG PRINT(.\Listings\de16.lst) OBJECT(.\Objects\d
+                      e16.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+0023                   4     ORG 0023H
+
+0023 020046            5             LJMP UART
+
+                       6     ; khai bao bien
+
+  0030                 7     FLAG EQU 30H
+
+                       8     ; khai bao hang
+
+  0000                 9     STX EQU 00H
+
+  00FF                10     EOT EQU 0FFH
+
+                      11     
+
+                      12     ; chuong trinh chinh
+
+0030                  13     ORG 0030H
+
+0030                  14     MAIN:
+
+0030 D2AF             15             SETB EA
+
+0032 D2AC             16             SETB ES
+
+                      17             
+
+0034 759850           18             MOV SCON, #50H          ; MODE 1, REN = 1
+
+0037 758920           19             MOV TMOD, #20H
+
+003A 758BFD           20             MOV TL1, #0FDH
+
+003D 758DFD           21             MOV TH1, #0FDH
+
+0040 D28E             22             SETB TR1
+
+                      23             
+
+0042 C230             24             CLR FLAG
+
+                      25             
+
+0044 80FE             26             SJMP $
+
+                      27                     
+
+                      28     ; phuc vu ngat UART     
+
+0046                  29     UART:
+
+0046 C298             30             CLR RI
+
+0048 E599             31             MOV A, SBUF
+
+                      32             
+
+004A 309815           33             JNB RI, ES_TI                                   ; co phai nhan du lieu ko?
+
+004D 203007           34                     JB FLAG, RECIVE                         ; FLAG=1 => nhan data, else doi nha
+                             n #STX
+
+0050 B4000F           35                             CJNE A, #STX, END_ES
+
+0053 D230             36                             SETB FLAG
+
+0055 800B             37                             SJMP END_ES
+
+0057                  38                     RECIVE:                                         ; FLAG = 1 
+
+0057 B4FF04           39                             CJNE A, #EOT, RX_DATA   ; co phai la ky tu ket thuc chuoi?
+
+005A C230             40                                     CLR FLAG
+
+005C 8004             41                                     SJMP END_ES
+
+005E                  42                             RX_DATA:                                ; else nhan du lieu truyen 
+                             vao @DPTR
+
+005E F0               43                                     MOVX @DPTR, A
+
+005F A3               44                                     INC DPTR
+
+0060 8000             45                                     SJMP END_ES
+
+0062                  46             ES_TI:
+
+0062                  47             END_ES:
+
+0062 32               48     RETI
+
+                      49     
+
+                      50     END
+
+A51 MACRO ASSEMBLER  DE16                                                                 01/07/2018 12:37:27 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+END_ES . . . . . .  C ADDR   0062H   A   
+EOT. . . . . . . .  N NUMB   00FFH   A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+ES_TI. . . . . . .  C ADDR   0062H   A   
+FLAG . . . . . . .  N NUMB   0030H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+RECIVE . . . . . .  C ADDR   0057H   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+RX_DATA. . . . . .  C ADDR   005EH   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+STX. . . . . . . .  N NUMB   0000H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+UART . . . . . . .  C ADDR   0046H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

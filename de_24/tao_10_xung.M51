@@ -1,0 +1,68 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/08/2018  00:18:32  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE tao_xung.obj TO tao_10_xung
+
+
+INPUT MODULES INCLUDED:
+  tao_xung.obj (TAO_XUNG)
+
+
+LINK MAP OF MODULE:  tao_10_xung (TAO_XUNG)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     004FH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  tao_10_xung (TAO_XUNG)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TAO_XUNG
+  D:00A8H         SYMBOL        IE
+  C:0045H         SYMBOL        KIEMTRA
+  C:0038H         SYMBOL        LOOP
+  C:0030H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  D:008CH         SYMBOL        TH0
+  D:008AH         SYMBOL        TL0
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  N:000AH         SYMBOL        XUNG
+  C:0000H         LINE#         2
+  C:000BH         LINE#         6
+  C:000DH         LINE#         7
+  C:000FH         LINE#         8
+  C:0010H         LINE#         9
+  C:0013H         LINE#         10
+  C:0016H         LINE#         12
+  C:0030H         LINE#         20
+  C:0033H         LINE#         21
+  C:0036H         LINE#         22
+  C:0038H         LINE#         25
+  C:003AH         LINE#         26
+  C:003DH         LINE#         27
+  C:0040H         LINE#         29
+  C:0043H         LINE#         30
+  C:0045H         LINE#         33
+  C:0048H         LINE#         35
+  C:004BH         LINE#         37
+  C:004DH         LINE#         38
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/08/2018  00:18:32  PAGE 2
+
+
+  -------         ENDMOD        TAO_XUNG
+
+Program Size: data=8.0 xdata=0 code=79
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

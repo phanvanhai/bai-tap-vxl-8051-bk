@@ -1,0 +1,121 @@
+A51 MACRO ASSEMBLER  DE18                                                                 01/08/2018 01:08:20 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de18.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de18.a51 SET(SMALL) DEBUG PRINT(.\Listings\de18.lst) OBJECT(.\Objects\d
+                      e18.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3             
+
+                       4             
+
+0030                   5     ORG 0030H
+
+0030                   6     MAIN:
+
+0030 1132              7             ACALL CHECK_SUM
+
+                       8     
+
+                       9     ;-----------------------
+
+0032                  10     CHECK_SUM:
+
+0032 C082             11             PUSH DPL
+
+0034 C083             12             PUSH DPH
+
+                      13             
+
+  0030                14             N1 EQU 30H
+
+  0031                15             N2 EQU 31H
+
+  0032                16             TEMP EQU 32H
+
+                      17                     
+
+0036 8A30             18             MOV N1, R2
+
+0038 8B31             19             MOV N2, R3
+
+                      20             
+
+003A 753200           21             MOV TEMP, #0    ; luu gia tri check sum
+
+003D                  22             LOOP:
+
+003D E0               23                     MOVX A, @DPTR
+
+003E 2532             24                     ADD A, TEMP
+
+0040 F532             25                     MOV TEMP, A
+
+0042 A3               26                     INC DPTR
+
+                      27                     ; DEC R3_R2
+
+0043 1A               28                     DEC R2
+
+0044 BAFF01           29                     CJNE R2, #0FFH, SKIP
+
+0047 19               30                     DEC R1
+
+0048                  31                     SKIP:
+
+                      32             ; check R3_R2 == 0?
+
+0048 BA00F2           33             CJNE R2, #0H, LOOP
+
+004B BB00EF           34             CJNE R3, #0H, LOOP
+
+                      35             ; ket thuc tinh check sum
+
+                      36             ; khoi phuc lai cac thanh ghi
+
+004E E532             37             MOV A, TEMP
+
+0050 AA30             38             MOV R2, N1
+
+0052 AB31             39             MOV R3, N2
+
+0054 D083             40             POP DPH
+
+0056 D082             41             POP DPL
+
+0058 22               42     RET
+
+                      43     
+
+                      44     END
+
+A51 MACRO ASSEMBLER  DE18                                                                 01/08/2018 01:08:20 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK_SUM. . . . .  C ADDR   0032H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+LOOP . . . . . . .  C ADDR   003DH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+N1 . . . . . . . .  N NUMB   0030H   A   
+N2 . . . . . . . .  N NUMB   0031H   A   
+SKIP . . . . . . .  C ADDR   0048H   A   
+TEMP . . . . . . .  N NUMB   0032H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

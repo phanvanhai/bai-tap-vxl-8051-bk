@@ -1,0 +1,51 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/07/2018  15:54:43  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE .\Objects\DE_11.obj TO .\Objects\DE_11 PRINT (.\Listings\DE_11.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\DE_11.obj (DE_11)
+
+
+LINK MAP OF MODULE:  .\Objects\DE_11 (DE_11)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0043H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\DE_11 (DE_11)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DE_11
+  C:0032H         SYMBOL        CONVERT
+  C:0040H         SYMBOL        INVALID
+  C:0032H         SYMBOL        LOOP
+  C:0030H         SYMBOL        MAIN
+  C:003CH         SYMBOL        VALID
+  C:0000H         LINE#         2
+  C:0030H         LINE#         6
+  C:0032H         LINE#         11
+  C:0035H         LINE#         12
+  C:0037H         LINE#         14
+  C:003AH         LINE#         15
+  C:003CH         LINE#         17
+  C:003DH         LINE#         18
+  C:003FH         LINE#         19
+  C:0040H         LINE#         21
+  C:0042H         LINE#         22
+  -------         ENDMOD        DE_11
+
+Program Size: data=8.0 xdata=0 code=67
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

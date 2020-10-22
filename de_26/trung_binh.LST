@@ -1,0 +1,143 @@
+A51 MACRO ASSEMBLER  TRUNG_BINH                                                           01/07/2018 23:59:54 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN trung_binh.OBJ
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE trung_binh.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 00                2     NOP
+
+0001 804D              3     SJMP MAIN
+
+                       4     
+
+                       5     
+
+0050                   6     ORG 0050H
+
+0050                   7     MAIN:
+
+                       8             ;---- tao du lieu test ct con --------
+
+0050 753020            9             MOV 30H, #20H
+
+0053 753121           10             MOV 31H, #21H
+
+0056 753223           11             MOV 32H, #23H
+
+0059 7533FA           12             MOV 33H, #0FAH
+
+005C 7534DC           13             MOV 34H, #0DCH
+
+005F 753556           14             MOV 35H, #56H
+
+0062 753678           15             MOV 36H, #78H
+
+0065 753744           16             MOV 37H, #44H
+
+                      17             
+
+0068 12006D           18             LCALL TRUNG_BINH
+
+                      19             
+
+006B 80FE             20             SJMP $
+
+                      21     ;----------  TRUNG_BINH --------------
+
+006D                  22     TRUNG_BINH:
+
+                      23     
+
+  REG                 24             NUM             EQU R0                          ; bien NUM de duyet cac so tu o nho
+                              30-> 37
+
+  REG                 25             KQ              EQU R1                          ; luu ket qua phan nguyen
+
+  REG                 26             TONG_DU EQU R2                          ; lu ket qua phan du
+
+                      27     
+
+006D 7830             28             MOV R0, #30H
+
+006F 7900             29             MOV KQ, #0
+
+0071 7A00             30             MOV TONG_DU, #0
+
+                      31     
+
+0073                  32             LOOP:
+
+0073 E6               33                     MOV A, @NUM
+
+0074 75F008           34                     MOV B, #8
+
+0077 84               35                     DIV AB                  ; lay tung so / 8
+
+0078 29               36                     ADD A, KQ               ; phan nguyen cua phep chia + vao KQ
+
+0079 F9               37                     MOV KQ, A
+
+                      38                     
+
+007A E5F0             39                     MOV A, B                ; lay phan du vua tinh dc + vao phan du truoc do
+
+007C 2A               40                     ADD A, TONG_DU
+
+007D FA               41                     MOV TONG_DU, A
+
+                      42                     
+
+007E 08               43                     INC NUM
+
+007F B838F1           44                     CJNE NUM, #(37H+1), LOOP        ; neu chua duyet den o nho 37 thi tiep tuc
+
+                      45                     ;else da tính xong den o nho 37
+
+                      46                     ; xu ly tiep ket qua:
+
+                      47                     
+
+0082 EA               48                     MOV A, TONG_DU          ; lay Tong_du / 8 
+
+0083 75F008           49                     MOV B, #8
+
+0086 84               50                     DIV AB
+
+0087 29               51                     ADD A, KQ                       ; phan nguyen cua phep chi + vào KQ
+
+0088 F9               52                     MOV KQ, A                       ; day moi chinh la Ket qua cuoi cung
+
+0089 AAF0             53                     MOV TONG_DU, B          ; phan du nay moi chinh la ket qua cuoi cung
+
+008B 22               54     RET
+
+                      55     
+
+                      56     END
+
+A51 MACRO ASSEMBLER  TRUNG_BINH                                                           01/07/2018 23:59:54 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+KQ . . . . . . . .    REG    R1          
+LOOP . . . . . . .  C ADDR   0073H   A   
+MAIN . . . . . . .  C ADDR   0050H   A   
+NUM. . . . . . . .    REG    R0          
+TONG_DU. . . . . .    REG    R2          
+TRUNG_BINH . . . .  C ADDR   006DH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

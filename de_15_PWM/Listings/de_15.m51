@@ -1,0 +1,61 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/07/2018  12:56:03  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE .\Objects\de_15.obj TO .\Objects\de_15 PRINT (.\Listings\de_15.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\de_15.obj (DE_15)
+
+
+LINK MAP OF MODULE:  .\Objects\de_15 (DE_15)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     00B3H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\de_15 (DE_15)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DE_15
+  B:00A8H.4       SYMBOL        ES
+  B:00A8H.1       SYMBOL        ET0
+  C:0030H         SYMBOL        MAIN
+  B:0090H.5       SYMBOL        OUT
+  D:0090H         SYMBOL        P1
+  C:0043H         SYMBOL        PWM
+  D:008CH         SYMBOL        TH0
+  D:008AH         SYMBOL        TL0
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  C:0000H         LINE#         2
+  C:00B0H         LINE#         5
+  C:0030H         LINE#         10
+  C:0033H         LINE#         11
+  C:0035H         LINE#         12
+  C:0037H         LINE#         14
+  C:003AH         LINE#         15
+  C:003DH         LINE#         16
+  C:003FH         LINE#         17
+  C:0041H         LINE#         18
+  C:0043H         LINE#         22
+  C:0045H         LINE#         24
+  C:0047H         LINE#         26
+  C:004AH         LINE#         27
+  C:004DH         LINE#         28
+  C:004FH         LINE#         29
+  -------         ENDMOD        DE_15
+
+Program Size: data=8.0 xdata=0 code=179
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

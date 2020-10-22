@@ -1,0 +1,61 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/08/2018  00:05:19  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE so_lan_lap.obj TO so_lan_lap
+
+
+INPUT MODULES INCLUDED:
+  so_lan_lap.obj (SO_LAN_LAP)
+
+
+LINK MAP OF MODULE:  so_lan_lap (SO_LAN_LAP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0079H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  so_lan_lap (SO_LAN_LAP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SO_LAN_LAP
+  D:00F0H         SYMBOL        B
+  C:0070H         SYMBOL        LOOP
+  C:0050H         SYMBOL        MAIN
+  C:0075H         SYMBOL        SKIP
+  C:006EH         SYMBOL        SO_LAN_LAP
+  D:00F0H         SYMBOL        TIM
+  C:0000H         LINE#         2
+  C:0001H         LINE#         3
+  C:0050H         LINE#         8
+  C:0053H         LINE#         9
+  C:0056H         LINE#         10
+  C:0059H         LINE#         11
+  C:005CH         LINE#         12
+  C:005FH         LINE#         13
+  C:0062H         LINE#         15
+  C:0065H         LINE#         16
+  C:0067H         LINE#         17
+  C:0069H         LINE#         20
+  C:006CH         LINE#         22
+  C:006EH         LINE#         32
+  C:0070H         LINE#         35
+  C:0071H         LINE#         36
+  C:0074H         LINE#         37
+  C:0075H         LINE#         39
+  C:0076H         LINE#         40
+  C:0078H         LINE#         41
+  -------         ENDMOD        SO_LAN_LAP
+
+Program Size: data=8.0 xdata=0 code=121
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

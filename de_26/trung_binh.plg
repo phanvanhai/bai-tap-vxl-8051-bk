@@ -1,0 +1,162 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\89S52\BT_vxl\de_26\trung_binh.uvproj
+Project File Date:  10/15/2017
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(28): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(41): error A9: SYNTAX ERROR
+trung_binh.a51(44): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(28): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(41): error A9: SYNTAX ERROR
+trung_binh.a51(44): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(28): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(41): error A9: SYNTAX ERROR
+trung_binh.a51(44): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(28): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(44): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(28): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(28): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(28): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(28): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(28): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+trung_binh.a51(33): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(50): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+trung_binh.a51(24): error A9: SYNTAX ERROR
+Target not created
+Build target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=143
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=144
+"trung_binh" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling trung_binh.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=144
+"trung_binh" - 0 Error(s), 0 Warning(s).

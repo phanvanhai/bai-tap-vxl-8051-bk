@@ -1,0 +1,50 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/07/2018  20:31:57  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE .\Objects\de_4.obj TO .\Objects\de_4 PRINT (.\Listings\de_4.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\de_4.obj (DE_4)
+
+
+LINK MAP OF MODULE:  .\Objects\de_4 (DE_4)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     003DH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\de_4 (DE_4)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DE_4
+  C:0032H         SYMBOL        ADD_BCD
+  C:0033H         SYMBOL        LOOP
+  C:0030H         SYMBOL        MAIN
+  N:0030H         SYMBOL        N
+  C:0000H         LINE#         2
+  C:0030H         LINE#         8
+  C:0032H         LINE#         19
+  C:0033H         LINE#         21
+  C:0034H         LINE#         22
+  C:0035H         LINE#         23
+  C:0036H         LINE#         24
+  C:0037H         LINE#         25
+  C:0038H         LINE#         26
+  C:0039H         LINE#         27
+  C:003CH         LINE#         28
+  -------         ENDMOD        DE_4
+
+Program Size: data=8.0 xdata=0 code=61
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

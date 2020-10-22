@@ -1,0 +1,193 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 01/08/2018 00:56:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE main.a51 SET(SMALL) DEBUG PRINT(.\Listings\main.lst) OBJECT(.\Objects\m
+                      ain.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2     LJMP MAIN
+
+                       3     
+
+  0034                 4     NL   EQU 34H    ; low N de luu gia tri byte thap cua N
+
+  0035                 5     NH   EQU 35H    ; high N luu gia tri byte cao cua N
+
+                       6             
+
+0030                   7     ORG 30H
+
+0030                   8     MAIN:
+
+0030 753500            9             MOV NH, #00H            ; gia su N= 0010H
+
+0033 753410           10             MOV NL, #10H
+
+                      11     
+
+0036 1138             12             ACALL CT_CON
+
+                      13     ;-------------------
+
+0038                  14     CT_CON:
+
+  0030                15             SRCL EQU 30H    ; dia chi nguon du lieu
+
+  0031                16             SRCH EQU 31H
+
+  0032                17             DESL EQU 32H    ; dia chi du lieu chuyen den
+
+  0033                18             DESH EQU 33H
+
+                      19             
+
+0038 753000           20             MOV SRCL, #00H
+
+003B 753140           21             MOV SRCH, #40H
+
+003E 753200           22             MOV DESL, #00H
+
+0041 753360           23             MOV DESH, #60H
+
+                      24             
+
+0044                  25             LOOP:
+
+0044 853082           26                     MOV DPL, SRCL   ; DPTR = dia chi nguon du lieu
+
+0047 853183           27                     MOV DPH, SRCH
+
+                      28                     
+
+004A E0               29                     MOVX A, @DPTR
+
+                      30                     ; tang SRCH_SRCL
+
+004B A3               31                     INC DPTR
+
+004C 853082           32                     MOV DPL, SRCL
+
+004F 853183           33                     MOV DPH, SRCH
+
+                      34                     
+
+                      35                     ; chuyen doi sang ASCII
+
+0052 FB               36                     MOV R3, A               ; luu lai gia tri A truoc khi A bi thay doi
+
+0053 540F             37                     ANL A, #0FH
+
+0055 2430             38                     ADD A, #'0'
+
+0057 F8               39                     MOV R0, A               ; R0 = ASCII(nibble low A)
+
+                      40                     
+
+0058 EB               41                     MOV A, R3
+
+0059 C4               42                     SWAP A
+
+005A 540F             43                     ANL A, #0FH
+
+005C 2430             44                     ADD A, #'0'
+
+005E F9               45                     MOV R1, A               ; R1 = ASCII(nibble high A)
+
+                      46                     
+
+                      47                     ; chuyen du lieu da chuyen doi toi o nho dich
+
+005F 853282           48                     MOV DPL, DESL   ; DPTR = dia chi noi se chuyen du lieu toi
+
+0062 853383           49                     MOV DPH, DESH
+
+                      50                     ; chuyen du lieu vao bo nho
+
+0065 E8               51                     MOV A, R0
+
+0066 F0               52                     MOVX @DPTR, A
+
+0067 A3               53                     INC DPTR
+
+                      54                     
+
+0068 E9               55                     MOV A, R1
+
+0069 F0               56                     MOVX @DPTR, A
+
+006A A3               57                     INC DPTR
+
+A51 MACRO ASSEMBLER  MAIN                                                                 01/08/2018 00:56:11 PAGE     2
+
+                      58                     ; luu lai vi tri dich vao DESH_DESL
+
+006B 853282           59                     MOV DPL, DESL
+
+006E 853383           60                     MOV DPH, DESH
+
+                      61                     
+
+                      62                     ; giam bien dem
+
+0071 1534             63                     DEC NL
+
+0073 E534             64                     MOV A, NL
+
+0075 B4FF02           65                     CJNE A, #0FFH, END_DEC          ; neu NL giam tu 00-> FF thi giam NH nguoc 
+                             lai bo qua
+
+0078 1535             66                             DEC NH
+
+007A                  67                     END_DEC:
+
+                      68                     
+
+                      69                     ; kiem tra dieu kien vong lap
+
+007A E534             70                     MOV A, NL               
+
+007C 70C6             71                     JNZ LOOP                        ; !=0 tiep tuc lap
+
+007E E535             72                     MOV A, NH
+
+0080 70C2             73                     JNZ LOOP                        ; !=0 tiep tuc lap
+
+0082 22               74     RET
+
+                      75     
+
+                      76     END
+
+                                     
+
+A51 MACRO ASSEMBLER  MAIN                                                                 01/08/2018 00:56:11 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CT_CON . . . . . .  C ADDR   0038H   A   
+DESH . . . . . . .  N NUMB   0033H   A   
+DESL . . . . . . .  N NUMB   0032H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+END_DEC. . . . . .  C ADDR   007AH   A   
+LOOP . . . . . . .  C ADDR   0044H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NH . . . . . . . .  N NUMB   0035H   A   
+NL . . . . . . . .  N NUMB   0034H   A   
+SRCH . . . . . . .  N NUMB   0031H   A   
+SRCL . . . . . . .  N NUMB   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

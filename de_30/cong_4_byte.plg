@@ -1,0 +1,66 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\89S52\BT_vxl\de_30\cong_4_byte.uvproj
+Project File Date:  10/14/2017
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling cong_4_byte.a51...
+cong_4_byte.a51(8): error A45: UNDEFINED SYMBOL (PASS-2)
+cong_4_byte.a51(21): error A40: INVALID REGISTER
+Target not created
+Build target 'Target 1'
+assembling cong_4_byte.a51...
+cong_4_byte.a51(8): error A45: UNDEFINED SYMBOL (PASS-2)
+Target not created
+Build target 'Target 1'
+assembling cong_4_byte.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=56
+"cong_4_byte" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling cong_4_byte.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=88
+"cong_4_byte" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling cong_4_byte.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=88
+"cong_4_byte" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling cong_4_byte.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=88
+"cong_4_byte" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=8.0 xdata=0 code=88
+"cong_4_byte" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling cong_4_byte.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=88
+"cong_4_byte" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling cong_4_byte.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=88
+"cong_4_byte" - 0 Error(s), 0 Warning(s).
+Rebuild target 'Target 1'
+assembling cong_4_byte.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=88
+"cong_4_byte" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling cong_4_byte.a51...
+cong_4_byte.a51(25): error A40: INVALID REGISTER
+Target not created
+Build target 'Target 1'
+assembling cong_4_byte.a51...
+linking...
+Program Size: data=8.0 xdata=0 code=38
+"cong_4_byte" - 0 Error(s), 0 Warning(s).

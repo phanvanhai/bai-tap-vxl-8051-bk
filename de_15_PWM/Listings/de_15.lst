@@ -1,0 +1,96 @@
+A51 MACRO ASSEMBLER  DE_15                                                                01/07/2018 12:56:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de_15.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de_15.a51 SET(SMALL) DEBUG PRINT(.\Listings\de_15.lst) OBJECT(.\Objects
+                      \de_15.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+00B0                   4     ORG 00B0H
+
+00B0 020043            5             LJMP PWM
+
+                       6     
+
+  0095                 7     OUT EQU P1.5
+
+0030                   8     ORG 0030H
+
+0030                   9     MAIN:
+
+0030 758901           10             MOV TMOD, #01H
+
+0033 D2AC             11             SETB ES
+
+0035 D2A9             12             SETB ET0
+
+                      13             
+
+0037 758AE0           14             MOV TL0, #LOW (-20000)
+
+003A 758CB1           15             MOV TH0, #HIGH (-20000)
+
+003D D28C             16             SETB TR0
+
+003F D295             17             SETB OUT
+
+0041 80FE             18             SJMP $
+
+                      19                     
+
+                      20     ; NGAT TIMER0
+
+0043                  21     PWM:
+
+0043 C28C             22             CLR TR0
+
+                      23             
+
+0045 B295             24             CPL OUT
+
+                      25             
+
+0047 758AE0           26             MOV TL0, #LOW (-20000)
+
+004A 758CB1           27             MOV TH0, #HIGH (-20000)
+
+004D D28C             28             SETB TR0
+
+004F 32               29     RETI
+
+                      30     
+
+                      31     END
+
+A51 MACRO ASSEMBLER  DE_15                                                                01/07/2018 12:56:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+OUT. . . . . . . .  B ADDR   0090H.5 A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+PWM. . . . . . . .  C ADDR   0043H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

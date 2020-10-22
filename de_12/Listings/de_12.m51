@@ -1,0 +1,65 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/07/2018  15:41:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE .\Objects\de_12.obj TO .\Objects\de_12 PRINT (.\Listings\de_12.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\de_12.obj (DE_12)
+
+
+LINK MAP OF MODULE:  .\Objects\de_12 (DE_12)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0053H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\de_12 (DE_12)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DE_12
+  C:0046H         SYMBOL        LOOP
+  C:0030H         SYMBOL        MAIN
+  N:0030H         SYMBOL        N_DATA
+  B:0098H.0       SYMBOL        RI
+  C:0043H         SYMBOL        RX_DATA
+  D:0099H         SYMBOL        SBUF
+  D:0098H         SYMBOL        SCON
+  D:008DH         SYMBOL        TH1
+  D:008BH         SYMBOL        TL1
+  D:0089H         SYMBOL        TMOD
+  B:0088H.6       SYMBOL        TR1
+  C:0000H         LINE#         2
+  C:0030H         LINE#         6
+  C:0033H         LINE#         7
+  C:0036H         LINE#         8
+  C:0039H         LINE#         9
+  C:003CH         LINE#         10
+  C:003EH         LINE#         11
+  C:0041H         LINE#         12
+  C:0043H         LINE#         17
+  C:0046H         LINE#         20
+  C:0049H         LINE#         21
+  C:004BH         LINE#         22
+  C:004DH         LINE#         23
+  C:004EH         LINE#         24
+  C:004FH         LINE#         25
+  C:0052H         LINE#         26
+  -------         ENDMOD        DE_12
+
+Program Size: data=8.0 xdata=0 code=83
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/07/2018  15:41:30  PAGE 2
+
+
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

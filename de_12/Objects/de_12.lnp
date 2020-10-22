@@ -1,0 +1,3 @@
+".\Objects\de_12.obj" 
+TO ".\Objects\de_12" 
+PRINT(".\Listings\de_12.m51")

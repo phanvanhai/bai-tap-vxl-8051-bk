@@ -1,0 +1,103 @@
+A51 MACRO ASSEMBLER  CONG_4_BYTE                                                          01/07/2018 22:25:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN cong_4_byte.OBJ
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE cong_4_byte.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+0030                   4     ORG 0030H
+
+0030                   5     MAIN:
+
+                       6             ; TRUYEN DIA CHI 2 SO VAO R0, R1
+
+0030 1132              7             ACALL ADD_4BYTE
+
+                       8             
+
+                       9     ;-----------------------
+
+0032                  10     ADD_4BYTE:
+
+  REG                 11     SO1   EQU R0                    ; chua dia chi MSB cua so 1     
+
+  REG                 12     SO2   EQU R1                    ; chua dia chi MSB cua so 2
+
+  REG                 13     COUNT EQU R2
+
+                      14     
+
+                      15     ; ban dau R0, R1 chi den vi tri MSB ( o dia chi thap) cua 2 so
+
+                      16     ; chuyen R0,R1 chi den vi tri LSB cua 2 so = cach cong them 4 : 
+
+0032 E8               17             MOV A, R0
+
+0033 2404             18             ADD A, #4
+
+0035 F8               19             MOV R0, A
+
+                      20     
+
+0036 E9               21             MOV A, R1
+
+0037 2404             22             ADD A, #4
+
+0039 F9               23             MOV R1, A
+
+                      24             
+
+                      25             ; tinh toan 
+
+003A 7A04             26             MOV COUNT, #4
+
+003C C3               27             CLR C
+
+003D                  28             BACK:
+
+003D E6               29                     MOV A, @SO1
+
+003E 37               30                     ADDC A, @SO2
+
+003F F6               31                     MOV @SO1, A
+
+0040 18               32                     DEC SO1
+
+0041 19               33                     DEC SO2
+
+0042 DAF9             34             DJNZ COUNT, BACK
+
+0044 22               35     RET
+
+                      36     
+
+                      37     END
+
+A51 MACRO ASSEMBLER  CONG_4_BYTE                                                          01/07/2018 22:25:02 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADD_4BYTE. . . . .  C ADDR   0032H   A   
+BACK . . . . . . .  C ADDR   003DH   A   
+COUNT. . . . . . .    REG    R2          
+MAIN . . . . . . .  C ADDR   0030H   A   
+SO1. . . . . . . .    REG    R0          
+SO2. . . . . . . .    REG    R1          
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

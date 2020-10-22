@@ -1,0 +1,56 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/08/2018  00:26:09  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE del_n_byte.obj TO del_n_byte
+
+
+INPUT MODULES INCLUDED:
+  del_n_byte.obj (DEL_N_BYTE)
+
+
+LINK MAP OF MODULE:  del_n_byte (DEL_N_BYTE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     004DH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  del_n_byte (DEL_N_BYTE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DEL_N_BYTE
+  C:0039H         SYMBOL        LOOP
+  C:0030H         SYMBOL        MAIN
+  N:0031H         SYMBOL        NH
+  N:0030H         SYMBOL        NL
+  C:003CH         SYMBOL        SKIP
+  C:0045H         SYMBOL        SKIP1
+  C:0000H         LINE#         2
+  C:0030H         LINE#         9
+  C:0033H         LINE#         10
+  C:0036H         LINE#         11
+  C:0039H         LINE#         13
+  C:003AH         LINE#         14
+  C:003BH         LINE#         15
+  C:003CH         LINE#         18
+  C:003EH         LINE#         19
+  C:0040H         LINE#         20
+  C:0043H         LINE#         21
+  C:0045H         LINE#         24
+  C:0047H         LINE#         25
+  C:0049H         LINE#         26
+  C:004BH         LINE#         27
+  -------         ENDMOD        DEL_N_BYTE
+
+Program Size: data=8.0 xdata=0 code=77
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,119 @@
+A51 MACRO ASSEMBLER  DE_9                                                                 01/07/2018 17:26:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de_9.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de_9.a51 SET(SMALL) DEBUG PRINT(.\Listings\de_9.lst) OBJECT(.\Objects\d
+                      e_9.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3             
+
+0030                   4     ORG 0030H
+
+0030                   5     MAIN:
+
+0030 7860              6             MOV R0, #60H                    ; su dung RAM noi
+
+0032 7965              7             MOV R1, #65H
+
+                       8     
+
+0034 1136              9             ACALL ADD_ASCII
+
+                      10     ;-----------------------
+
+0036                  11     ADD_ASCII:
+
+  0030                12             N_BYTE  EQU 30H
+
+  0031                13             TEMP    EQU 31H
+
+  0032                14             KQ              EQU 32H         ; dia chi dau tien de luu tru ket qua
+
+                      15             
+
+0036 753005           16             MOV N_BYTE, #5
+
+0039 753270           17             MOV KQ, #70H            ; ket qua bat dau tu o nho RAM noi: 70H
+
+003C C3               18             CLR C
+
+003D                  19             LOOP:
+
+003D E6               20                     MOV A, @R0              ;  0x3X
+
+003E 37               21                     ADDC A, @R1             ; +0x3Y = 0x6(X+Y)
+
+003F 540F             22                     ANL A, #0FH             ;       A = 0x0(X+Y)
+
+0041 C4               23                     SWAP A                  ;   A = 0x(X+Y)0
+
+0042 D4               24                     DA A                    ; X+Y >=10 => A = 0x(X+Y-10)0, C=1 else : A = 0x(X+
+                             Y)0, C=0
+
+0043 C4               25                     SWAP A
+
+0044 543F             26                     ANL A, #3FH             ; to ASCII, ko dung ADD de tranh mat bit C
+
+                      27                     ; chuyen ket qua vao o nho
+
+0046 8831             28                     MOV TEMP, R0    ; luu tru lai gia tri R0
+
+0048 A832             29                     MOV R0, KQ              ; KQ -> dia chi luu ket qua
+
+004A F6               30                     MOV @R0, A              ; @R0 = ket qua = A
+
+004B A831             31                     MOV R0, TEMP    ; khoi phuc lai gia tri R0
+
+                      32                     ; tro den cac o nho tuong ung cua tung bien
+
+004D 08               33                     INC R0                  
+
+004E 09               34                     INC R1
+
+004F 0532             35                     INC KQ
+
+0051 D530E9           36             DJNZ N_BYTE, LOOP
+
+0054 22               37     RET
+
+                      38     
+
+                      39     END
+
+                                             
+
+                                             
+
+                                             
+
+                                     
+
+                                     
+
+A51 MACRO ASSEMBLER  DE_9                                                                 01/07/2018 17:26:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADD_ASCII. . . . .  C ADDR   0036H   A   
+KQ . . . . . . . .  N NUMB   0032H   A   
+LOOP . . . . . . .  C ADDR   003DH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+N_BYTE . . . . . .  N NUMB   0030H   A   
+TEMP . . . . . . .  N NUMB   0031H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

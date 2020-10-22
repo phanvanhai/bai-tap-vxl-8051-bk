@@ -1,0 +1,77 @@
+A51 MACRO ASSEMBLER  DE_11                                                                01/07/2018 15:54:43 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\DE_11.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE DE_11.a51 SET(SMALL) DEBUG PRINT(.\Listings\DE_11.lst) OBJECT(.\Objects
+                      \DE_11.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+0030                   4     ORG 0030H
+
+0030                   5     MAIN:
+
+0030 1132              6             ACALL CONVERT
+
+                       7     
+
+                       8     ;-----------------
+
+0032                   9     CONVERT:
+
+0032                  10             LOOP:
+
+0032 B66107           11                     CJNE @R0, #'a', VALID
+
+0035 4009             12                     JC INVALID                              ; @R0 < 'a'
+
+                      13                     ;else: @R0 > 'a'
+
+0037 B67A02           14                     CJNE @R0, #'z', VALID
+
+003A 5004             15                     JNC INVALID                             ; @R0 > 'z'
+
+003C                  16                     VALID:
+
+003C E6               17                             MOV A, @R0
+
+003D 24E0             18                             ADD A, #('A'-'a')
+
+003F F6               19                             MOV @R0, A
+
+0040                  20                     INVALID:
+
+0040 DFF0             21             DJNZ R7, LOOP
+
+0042 22               22     RET
+
+                      23     
+
+                      24     END
+
+A51 MACRO ASSEMBLER  DE_11                                                                01/07/2018 15:54:43 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CONVERT. . . . . .  C ADDR   0032H   A   
+INVALID. . . . . .  C ADDR   0040H   A   
+LOOP . . . . . . .  C ADDR   0032H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+VALID. . . . . . .  C ADDR   003CH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,87 @@
+A51 MACRO ASSEMBLER  DEL_N_BYTE                                                           01/08/2018 00:26:09 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN del_n_byte.OBJ
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE del_n_byte.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2     LJMP MAIN
+
+                       3     
+
+  0030                 4     NL   EQU 30H    ; low N
+
+  0031                 5     NH   EQU 31H    ; high N
+
+                       6             
+
+0030                   7     ORG 30H
+
+0030                   8     MAIN:
+
+0030 908000            9             MOV DPTR, #8000H
+
+0033 753100           10             MOV NH, #00H
+
+0036 753010           11             MOV NL, #10H
+
+0039                  12             LOOP:
+
+0039 E4               13                     CLR A
+
+003A F0               14                     MOVX @DPTR, A           ; xoa ô nho @DPTR
+
+003B A3               15                     INC DPTR
+
+                      16             ; giam NH_NL
+
+003C                  17             skip:                                   
+
+003C 1530             18                     DEC NL
+
+003E E530             19                     MOV A, NL
+
+0040 B4FF02           20                     CJNE A, #0FFH, skip1    ; 00h -> FFh ?
+
+0043 1531             21                     DEC NH
+
+                      22             ; kiem tra NH_NH == 0 ? 
+
+0045                  23             skip1:
+
+0045 E530             24                     MOV A, NL
+
+0047 70F0             25                     JNZ LOOP                        ; NL != 0 => tiep tuc lap
+
+0049 E531             26                     MOV A, NH
+
+004B 70EC             27                     JNZ LOOP                        ; NH != 0 => tiep tuc lap
+
+                      28     END
+
+                                     
+
+A51 MACRO ASSEMBLER  DEL_N_BYTE                                                           01/08/2018 00:26:09 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0039H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NH . . . . . . . .  N NUMB   0031H   A   
+NL . . . . . . . .  N NUMB   0030H   A   
+SKIP . . . . . . .  C ADDR   003CH   A   
+SKIP1. . . . . . .  C ADDR   0045H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

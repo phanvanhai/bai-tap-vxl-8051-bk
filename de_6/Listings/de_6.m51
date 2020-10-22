@@ -1,0 +1,54 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/07/2018  19:50:00  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE .\Objects\de_6.obj TO .\Objects\de_6 PRINT (.\Listings\de_6.m51)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\de_6.obj (DE_6)
+
+
+LINK MAP OF MODULE:  .\Objects\de_6 (DE_6)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0041H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\de_6 (DE_6)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        DE_6
+  C:0036H         SYMBOL        LOOP
+  C:0030H         SYMBOL        MAIN
+  N:0030H         SYMBOL        N
+  N:0032H         SYMBOL        TEMP_R0
+  N:0031H         SYMBOL        TEMP_R1
+  C:0032H         SYMBOL        TO_BCD
+  C:0000H         LINE#         2
+  C:0030H         LINE#         6
+  C:0032H         LINE#         14
+  C:0034H         LINE#         15
+  C:0036H         LINE#         17
+  C:0037H         LINE#         18
+  C:0038H         LINE#         19
+  C:0039H         LINE#         20
+  C:003AH         LINE#         21
+  C:003BH         LINE#         22
+  C:003CH         LINE#         23
+  C:003DH         LINE#         24
+  C:0040H         LINE#         25
+  -------         ENDMOD        DE_6
+
+Program Size: data=8.0 xdata=0 code=65
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

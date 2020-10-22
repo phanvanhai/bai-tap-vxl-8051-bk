@@ -1,0 +1,52 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/07/2018  23:28:15  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE R0x2_byte.obj TO R0x2BYTE
+
+
+INPUT MODULES INCLUDED:
+  R0x2_byte.obj (R0X2_BYTE)
+
+
+LINK MAP OF MODULE:  R0x2BYTE (R0X2_BYTE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     001CH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  R0x2BYTE (R0X2_BYTE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        R0X2_BYTE
+  D:00F0H         SYMBOL        B
+  C:0000H         LINE#         4
+  C:0003H         LINE#         5
+  C:0006H         LINE#         6
+  C:0008H         LINE#         15
+  C:0009H         LINE#         16
+  C:000CH         LINE#         17
+  C:000DH         LINE#         18
+  C:000EH         LINE#         19
+  C:0010H         LINE#         22
+  C:0011H         LINE#         23
+  C:0014H         LINE#         24
+  C:0015H         LINE#         25
+  C:0016H         LINE#         26
+  C:0017H         LINE#         27
+  C:0019H         LINE#         28
+  C:001BH         LINE#         29
+  -------         ENDMOD        R0X2_BYTE
+
+Program Size: data=8.0 xdata=0 code=28
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

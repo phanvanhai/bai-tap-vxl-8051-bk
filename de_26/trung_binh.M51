@@ -1,0 +1,74 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/07/2018  23:59:54  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE trung_binh.obj TO trung_binh
+
+
+INPUT MODULES INCLUDED:
+  trung_binh.obj (TRUNG_BINH)
+
+
+LINK MAP OF MODULE:  trung_binh (TRUNG_BINH)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     008CH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  trung_binh (TRUNG_BINH)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TRUNG_BINH
+  D:00F0H         SYMBOL        B
+  C:0073H         SYMBOL        LOOP
+  C:0050H         SYMBOL        MAIN
+  C:006DH         SYMBOL        TRUNG_BINH
+  C:0000H         LINE#         2
+  C:0001H         LINE#         3
+  C:0050H         LINE#         9
+  C:0053H         LINE#         10
+  C:0056H         LINE#         11
+  C:0059H         LINE#         12
+  C:005CH         LINE#         13
+  C:005FH         LINE#         14
+  C:0062H         LINE#         15
+  C:0065H         LINE#         16
+  C:0068H         LINE#         18
+  C:006BH         LINE#         20
+  C:006DH         LINE#         28
+  C:006FH         LINE#         29
+  C:0071H         LINE#         30
+  C:0073H         LINE#         33
+  C:0074H         LINE#         34
+  C:0077H         LINE#         35
+  C:0078H         LINE#         36
+  C:0079H         LINE#         37
+  C:007AH         LINE#         39
+  C:007CH         LINE#         40
+  C:007DH         LINE#         41
+  C:007EH         LINE#         43
+  C:007FH         LINE#         44
+  C:0082H         LINE#         48
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/07/2018  23:59:54  PAGE 2
+
+
+  C:0083H         LINE#         49
+  C:0086H         LINE#         50
+  C:0087H         LINE#         51
+  C:0088H         LINE#         52
+  C:0089H         LINE#         53
+  C:008BH         LINE#         54
+  -------         ENDMOD        TRUNG_BINH
+
+Program Size: data=8.0 xdata=0 code=140
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

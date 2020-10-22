@@ -1,0 +1,100 @@
+A51 MACRO ASSEMBLER  DE_3                                                                 01/07/2018 21:32:33 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de_3.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de_3.a51 SET(SMALL) DEBUG PRINT(.\Listings\de_3.lst) OBJECT(.\Objects\d
+                      e_3.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+0030                   4     ORG 0030H
+
+0030                   5     MAIN:
+
+0030 1132              6             ACALL COUNT
+
+                       7             
+
+                       8     ;-----------------
+
+0032                   9     COUNT:
+
+                      10             ; khoi tao cac gia tri
+
+0032 901000           11             MOV DPTR, #1000H
+
+0035 7A00             12             MOV R2, #0
+
+0037 7B00             13             MOV R3, #0
+
+                      14             
+
+0039                  15             LOOP:
+
+0039 E0               16                     MOVX A, @DPTR
+
+003A 6008             17                     JZ SKIP                                                 ; A = 0 => ko phai 
+                             là so duong
+
+003C 20E705           18                     JB ACC.7, SKIP                                  ; neu ACC.7 = 1 thi A la so
+                              am => bo qua
+
+                      19                             ; else: la so duong
+
+003F 0A               20                             INC R2
+
+0040 BA0001           21                             CJNE R2, #00H, SKIP                     ; neu R2 t FFh+1 = 00h thi 
+                             INC R3, else bo qua INC R3
+
+0043 0B               22                             INC R3
+
+0044                  23                     SKIP:
+
+0044 A3               24                             INC DPTR
+
+0045 E583             25             MOV A, DPH
+
+0047 B420EF           26             CJNE A, #20H, LOOP                              ; quay lai vong lap neu chua den 20
+                             xxH
+
+004A E582             27             MOV A, DPL
+
+004C B401EA           28             CJNE A, #01H, LOOP                              ; neu DPTR = 2001H -> thoat vong la
+                             p
+
+004F 22               29     RET 
+
+                      30     
+
+                      31     END
+
+                                                     
+
+A51 MACRO ASSEMBLER  DE_3                                                                 01/07/2018 21:32:33 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+COUNT. . . . . . .  C ADDR   0032H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+LOOP . . . . . . .  C ADDR   0039H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+SKIP . . . . . . .  C ADDR   0044H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

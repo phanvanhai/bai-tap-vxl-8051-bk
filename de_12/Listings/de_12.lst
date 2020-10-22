@@ -1,0 +1,93 @@
+A51 MACRO ASSEMBLER  DE_12                                                                01/07/2018 15:41:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de_12.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de_12.a51 SET(SMALL) DEBUG PRINT(.\Listings\de_12.lst) OBJECT(.\Objects
+                      \de_12.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+0030                   4     ORG 0030H
+
+0030                   5     MAIN:
+
+0030 759850            6             MOV SCON, #50H
+
+0033 758920            7             MOV TMOD, #20H
+
+0036 758BFD            8             MOV TL1, #0FDH  ; 9600 BAUD
+
+0039 758DFD            9             MOV TH1, #0FDH
+
+003C D28E             10             SETB TR1
+
+003E 900000           11             MOV DPTR, #0000H
+
+0041 1143             12             ACALL RX_DATA
+
+                      13             
+
+                      14     ;------------------------
+
+0043                  15     RX_DATA:
+
+  0030                16             N_DATA EQU 30H
+
+0043 753064           17             MOV N_DATA, #100
+
+                      18             
+
+0046                  19             LOOP:
+
+0046 3098FD           20                     JNB RI, $       ; doi den khi nhan dc data
+
+0049 C298             21                     CLR RI
+
+004B E599             22                     MOV A, SBUF
+
+004D F0               23                     MOVX @DPTR, A
+
+004E A3               24                     INC DPTR
+
+004F D530F4           25             DJNZ N_DATA, LOOP
+
+0052 22               26     RET
+
+                      27     
+
+                      28     END
+
+                                     
+
+A51 MACRO ASSEMBLER  DE_12                                                                01/07/2018 15:41:29 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0046H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+N_DATA . . . . . .  N NUMB   0030H   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+RX_DATA. . . . . .  C ADDR   0043H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

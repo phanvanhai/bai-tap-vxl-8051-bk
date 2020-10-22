@@ -1,0 +1,78 @@
+A51 MACRO ASSEMBLER  DE_8                                                                 01/07/2018 17:42:09 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de_8.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de_8.a51 SET(SMALL) DEBUG PRINT(.\Listings\de_8.lst) OBJECT(.\Objects\d
+                      e_8.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+000B                   4     ORG 000BH
+
+000B B290              5             CPL P1.0
+
+000D 32                6             RETI
+
+                       7     
+
+  0003                 8     HE_SO EQU 3
+
+                       9     
+
+0030                  10     ORG 0030H
+
+0030                  11     MAIN:
+
+0030 D2AF             12             SETB EA
+
+0032 D2A9             13             SETB ET0                        ; ngat C/T0
+
+0034 758906           14             MOV TMOD, #06H          ; C/T0 = 1, MODE 2: AUTO LOAD 8BIT
+
+0037 758AFD           15             MOV TL0, #(-HE_SO)
+
+003A 758CFD           16             MOV TH0, #(-HE_SO)
+
+                      17             
+
+003D D290             18             SETB P1.0
+
+003F D28C             19             SETB TR0
+
+                      20             
+
+0041 80FE             21             SJMP $
+
+                      22                     
+
+*** WARNING #A41 IN 22 (de_8.a51, LINE 22): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  DE_8                                                                 01/07/2018 17:42:09 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+HE_SO. . . . . . .  N NUMB   0003H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

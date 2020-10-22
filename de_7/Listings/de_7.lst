@@ -1,0 +1,129 @@
+A51 MACRO ASSEMBLER  DE_7                                                                 01/07/2018 19:27:23 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de_7.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de_7.a51 SET(SMALL) DEBUG PRINT(.\Listings\de_7.lst) OBJECT(.\Objects\d
+                      e_7.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+  0030                 4     N_BYTE  EQU 30H
+
+  0031                 5     M_BIT   EQU 31H
+
+                       6     
+
+0030                   7     ORG 0030H
+
+0030                   8     MAIN:
+
+0030 7800              9             MOV R0, #00H            ; DIA CHI MSB DU LIEU
+
+0032 753005           10             MOV N_BYTE, #5
+
+0035 753105           11             MOV M_BIT, #5
+
+                      12             
+
+0038 113A             13             ACALL RR_N_BYTE
+
+                      14             
+
+                      15     ;------------------
+
+003A                  16     RR_N_BYTE:
+
+  REG                 17             ADDR_LSB        EQU R1                  ; DIA CHI BYTE THAP NHAT
+
+  0030                18             TEMP_R0         EQU 30H
+
+  0031                19             TEMP1           EQU 31H
+
+  0032                20             TEMP2           EQU 32H
+
+                      21             
+
+                      22             ; lay ADDR_LSB
+
+003A E8               23             MOV A, R0
+
+003B 2530             24             ADD A, N_BYTE
+
+003D F9               25             MOV ADDR_LSB, A 
+
+                      26             
+
+003E 8830             27             MOV TEMP_R0, R0                         ; luu dia chi ban dau cua R0
+
+                      28             
+
+0040 853131           29             MOV TEMP1, M_BIT
+
+0043                  30             LOOP1:
+
+                      31                     ; lay LSB cua byte thap nhat -> C
+
+0043 89E0             32                     MOV ACC, ADDR_LSB
+
+0045 A2E0             33                     MOV C, ACC.0
+
+                      34                     
+
+0047 A830             35                     MOV R0, TEMP_R0                 ; R0 = dia chi bat dau cua data
+
+0049 853032           36                     MOV TEMP2, N_BYTE
+
+004C                  37                     LOOP2:
+
+004C E6               38                             MOV A, @R0
+
+004D 13               39                             RRC A
+
+004E F6               40                             MOV @R0, A
+
+004F 08               41                             INC R0
+
+0050 D532F9           42                     DJNZ TEMP2, LOOP2
+
+0053 D531ED           43             DJNZ TEMP1, LOOP1
+
+                      44     
+
+0056 22               45     RET
+
+                      46     
+
+                      47     END
+
+A51 MACRO ASSEMBLER  DE_7                                                                 01/07/2018 19:27:23 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+ADDR_LSB . . . . .    REG    R1          
+LOOP1. . . . . . .  C ADDR   0043H   A   
+LOOP2. . . . . . .  C ADDR   004CH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+M_BIT. . . . . . .  N NUMB   0031H   A   
+N_BYTE . . . . . .  N NUMB   0030H   A   
+RR_N_BYTE. . . . .  C ADDR   003AH   A   
+TEMP1. . . . . . .  N NUMB   0031H   A   
+TEMP2. . . . . . .  N NUMB   0032H   A   
+TEMP_R0. . . . . .  N NUMB   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

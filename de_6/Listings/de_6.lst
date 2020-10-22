@@ -1,0 +1,84 @@
+A51 MACRO ASSEMBLER  DE_6                                                                 01/07/2018 19:49:59 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\de_6.obj
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE de_6.a51 SET(SMALL) DEBUG PRINT(.\Listings\de_6.lst) OBJECT(.\Objects\d
+                      e_6.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 020030            2             LJMP MAIN
+
+                       3     
+
+0030                   4     ORG 0030H
+
+0030                   5     MAIN:
+
+0030 1132              6             ACALL TO_BCD
+
+                       7             
+
+                       8     ;-------------------
+
+0032                   9     TO_BCD:
+
+  0030                10             N               EQU 30H
+
+  0031                11             TEMP_R1 EQU 31H         ; luu lai gia tri cua R0
+
+  0032                12             TEMP_R0 EQU 32H         ; luu lai gia tri cua R1
+
+                      13             
+
+0032 8832             14             MOV TEMP_R0, R0
+
+0034 8931             15             MOV TEMP_R1, R1
+
+0036                  16             LOOP:
+
+0036 E4               17                     CLR A
+
+0037 D6               18                     XCHD A, @R0             ; A = 0x0(nibble low @R0)
+
+0038 C4               19                     SWAP A                  ; A = 0x(nibble low @R0)0
+
+0039 08               20                     INC R0
+
+003A D6               21                     XCHD A, @R0             ; A = 0x(nibble low @R0)(nibble low next @R0)
+
+003B F7               22                     MOV @R1, A              ; chuyen ket qua vao o nho tuong ung
+
+003C 09               23                     INC R1
+
+003D D530F6           24             DJNZ N, LOOP
+
+0040 22               25     RET
+
+                      26     
+
+                      27     END
+
+A51 MACRO ASSEMBLER  DE_6                                                                 01/07/2018 19:49:59 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0036H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+N. . . . . . . . .  N NUMB   0030H   A   
+TEMP_R0. . . . . .  N NUMB   0032H   A   
+TEMP_R1. . . . . .  N NUMB   0031H   A   
+TO_BCD . . . . . .  C ADDR   0032H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

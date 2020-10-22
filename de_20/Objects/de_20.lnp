@@ -1,0 +1,4 @@
+".\Objects\de20.obj" 
+TO ".\Objects\de_20" 
+PRINT(".\Listings\de_20.m51") CODE( 0X0000-0X0FFF )
+XDATA( 0X0040-0X006E )

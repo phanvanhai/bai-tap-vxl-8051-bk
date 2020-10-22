@@ -1,0 +1,69 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/07/2018  23:49:11  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL C5\C51\BIN\BL51.EXE RL_m_byte.obj TO RL_m_byte
+
+
+INPUT MODULES INCLUDED:
+  RL_m_byte.obj (RL_M_BYTE)
+
+
+LINK MAP OF MODULE:  RL_m_byte (RL_M_BYTE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0077H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  RL_m_byte (RL_M_BYTE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        RL_M_BYTE
+  D:00E0H         SYMBOL        ACC
+  C:0063H         SYMBOL        LOOP1
+  C:006CH         SYMBOL        LOOP2
+  C:0050H         SYMBOL        MAIN
+  N:0031H         SYMBOL        M_BIT
+  N:0030H         SYMBOL        N_BYTE
+  C:005AH         SYMBOL        RL_N_BYTE
+  N:0033H         SYMBOL        TEMP1
+  N:0034H         SYMBOL        TEMP2
+  N:0032H         SYMBOL        TEMP_R0
+  C:0000H         LINE#         2
+  C:0050H         LINE#         9
+  C:0052H         LINE#         10
+  C:0055H         LINE#         11
+  C:0058H         LINE#         13
+  C:005AH         LINE#         22
+  C:005BH         LINE#         23
+  C:005DH         LINE#         24
+  C:005EH         LINE#         26
+  C:0060H         LINE#         29
+  C:0063H         LINE#         32
+  C:0065H         LINE#         33
+  C:0067H         LINE#         36
+  C:0069H         LINE#         37
+  C:006CH         LINE#         39
+  C:006DH         LINE#         40
+  C:006EH         LINE#         41
+  C:006FH         LINE#         42
+  C:0070H         LINE#         43
+  C:0073H         LINE#         44
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/07/2018  23:49:11  PAGE 2
+
+
+  C:0076H         LINE#         46
+  -------         ENDMOD        RL_M_BYTE
+
+Program Size: data=8.0 xdata=0 code=119
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,130 @@
+A51 MACRO ASSEMBLER  RL_M_BYTE                                                            01/07/2018 23:49:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN RL_m_byte.OBJ
+ASSEMBLER INVOKED BY: F:\keil C5\C51\BIN\A51.EXE RL_m_byte.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+
+0000 804E              2             JMP MAIN
+
+                       3             
+
+  0030                 4     N_BYTE  EQU 30H
+
+  0031                 5     M_BIT   EQU 31H
+
+                       6             
+
+0050                   7     ORG 0050H
+
+0050                   8     MAIN:
+
+0050 7800              9             MOV R0, #00H            ; dia chi LSByte du lieu
+
+0052 753005           10             MOV N_BYTE, #5
+
+0055 753105           11             MOV M_BIT, #5
+
+                      12             
+
+0058 115A             13             ACALL RL_N_BYTE
+
+                      14     ;------------------
+
+005A                  15     RL_N_BYTE:
+
+  REG                 16             ADDR_MSB        EQU R1                  ; dia chi Byte cao nhat
+
+  0032                17             TEMP_R0         EQU 32H                 ; luu lai gia tri ban dau cua R0
+
+  0033                18             TEMP1           EQU 33H
+
+  0034                19             TEMP2           EQU 34H
+
+                      20             
+
+                      21             ; lay ADDR_MSB
+
+005A E8               22             MOV A, R0
+
+005B 2530             23             ADD A, N_BYTE
+
+005D F9               24             MOV ADDR_MSB, A 
+
+                      25             
+
+005E 8832             26             MOV TEMP_R0, R0                         ; luu dia chi ban dau cua R0
+
+                      27             
+
+                      28             ; bat dau xoay trai tu Byte thap den byte cao nhat
+
+0060 853133           29             MOV TEMP1, M_BIT
+
+0063                  30             LOOP1:
+
+                      31                     ; lay MSBit cua byte cao nhat -> C
+
+0063 89E0             32                     MOV ACC, ADDR_MSB
+
+0065 A2E7             33                     MOV C, ACC.7
+
+                      34                     
+
+                      35                     ; xoay vong bat dau tu byte thap den byte cao
+
+0067 A832             36                     MOV R0, TEMP_R0                 ; R0 = dia chi bat dau cua data
+
+0069 853034           37                     MOV TEMP2, N_BYTE
+
+006C                  38                     LOOP2:
+
+006C E6               39                             MOV A, @R0
+
+006D 13               40                             RRC A
+
+006E F6               41                             MOV @R0, A
+
+006F 08               42                             INC R0
+
+0070 D534F9           43                     DJNZ TEMP2, LOOP2               ; lap den khi xoay dc Temp2 = N_byte byte
+
+0073 D533ED           44             DJNZ TEMP1, LOOP1                       ; lap di khi xoay du Temp1 = M_bit bit
+
+                      45     
+
+0076 22               46     RET
+
+                      47     
+
+                      48     END
+
+A51 MACRO ASSEMBLER  RL_M_BYTE                                                            01/07/2018 23:49:11 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+ADDR_MSB . . . . .    REG    R1          
+LOOP1. . . . . . .  C ADDR   0063H   A   
+LOOP2. . . . . . .  C ADDR   006CH   A   
+MAIN . . . . . . .  C ADDR   0050H   A   
+M_BIT. . . . . . .  N NUMB   0031H   A   
+N_BYTE . . . . . .  N NUMB   0030H   A   
+RL_N_BYTE. . . . .  C ADDR   005AH   A   
+TEMP1. . . . . . .  N NUMB   0033H   A   
+TEMP2. . . . . . .  N NUMB   0034H   A   
+TEMP_R0. . . . . .  N NUMB   0032H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
